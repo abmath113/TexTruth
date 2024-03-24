@@ -38,5 +38,4 @@ function handleFileUpload(event) {
     }
 }
 
-// Add event listener to file input element
 document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
