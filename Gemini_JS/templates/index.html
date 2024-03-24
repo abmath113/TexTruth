@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@latest/dist/generative-ai.umd.min.js"></script>
+</head>
+
+<body>
+    <h1>Generative AI Example</h1>
+    <div>
+        <textarea id="textInput" rows="5" cols="50" placeholder="Enter text for generation"></textarea>
+    </div>
+    <div>
+        <button onclick="generateContent()">Generate Content</button>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        const genAI = new GoogleGenerativeAI("AIzaSyC_q1kel5pXMXbyZWzOtpMZPg8xEXp8fR8");
+
+        async function generateContent() {
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+            const text1 = "Regression analyzes the relationship between variables. It aims to find a line (for linear regression) that best fits the data points. This line helps predict a dependent variable (what you want to forecast) based on an independent variable (what you're basing the prediction on). It's a fundamental tool for modeling trends and making data-driven predictions";
+
+            // Specify the prompt with the stored input
+            const prompt = `Provide web citations on : ${text1}`;
+
+            try {
+                // Generate content based on the prompt
+                const result = await model.generateContent(prompt);
+
+                // Extract the response from the result
+                const response = await result.response;
+
+                // Extract the text from the response
+                const generatedText = response.text();
+
+                // Print the generated text
+                console.log(generatedText);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+    
+    </script>
+</body>
+
+</html>
