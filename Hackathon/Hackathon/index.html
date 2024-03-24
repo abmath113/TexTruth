@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="heading">
+        <header>
+            <h1>TexTruth</h1>
+        </header>
+    </div>
+
+    <main>
+        <form id="uploadForm">
+            <div class="file-upload">
+                <label for="fileUpload">Upload PDF or Text file:</label>
+                <div class="upload-btn">
+                    <input type="file" id="fileUpload" accept=".pdf, .txt">
+                </div>
+            </div>
+            <div>
+                <label for="textInput">Or enter text:</label>
+                <textarea id="textInput" rows="10"></textarea>
+            </div>
+            <button id="analyzeButton">Analyze</button>
+        </form>
+        <!-- <div id="citationContainer"></div> 
+        <div id="resultContainer"></div>  -->
+
+        <div id="citationSection">
+            <!-- <h2>Citation</h2> -->
+            <div id="citationContainer"></div>
+        </div>
+        
+        <!-- Separate container for analysis result -->
+        <div id="resultSection">
+            <!-- <h2>Result</h2> -->
+            <div id="resultContainer"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+
+</body>
+
+</html>
