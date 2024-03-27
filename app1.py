@@ -36,15 +36,19 @@ def calculate_complexity(text):
         0.1 * coleman_liau
     )
 
-    return composite_score
+    return {composite_score, flesch_kincaid_grade, flesch_reading_ease, dale_chall, coleman_liau}
 
 def main():
     st.title("Language Model Text Analysis")
     text = st.text_area("Enter the text you want to analyze", height=200)
     if st.button("Analyze"):
         if text:
-            score = calculate_complexity(text)
+            score, score1, score2, score3, score4 = calculate_complexity(text)
             st.write("The complexity score is: ",score)
+            st.write("The reading difficulty score is: ",score1, "/18")
+            st.write("The reading ease score is: ",score2, "/100")
+            st.write("The comprehension difficulty score is: ",score3)
+            st.write("The text readability score is: ",score4)
         else:
             st.warning("Please enter some text to analyze.")
 
